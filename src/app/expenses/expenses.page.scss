@@ -1,0 +1,85 @@
+ion-toolbar {
+  --background: #161922;
+  --color: #e5e7eb;
+  border-bottom: 2px solid #5eead4;
+}
+
+ion-content {
+  --background: #0d0f14;
+}
+
+.form-card,
+.list-card {
+  background: #171a22;
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 14px;
+}
+
+ion-item {
+  --background: transparent;
+  --color: #e5e7eb;
+  --border-color: #2a2f3d;
+}
+
+ion-input {
+  --color: #ffffff;
+  --placeholder-color: #8b93a7;
+  --placeholder-opacity: 1;
+}
+
+ion-list-header ion-label {
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.add-btn {
+  --background: #5eead4;
+  --background-activated: #2dd4bf;
+  --color: #0b1f1c;
+  --border-radius: 12px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+ion-checkbox {
+  --size: 22px;
+  --border-color: #6b7280;
+  --border-color-checked: #5eead4;
+  --checkbox-background-checked: #5eead4;
+  --checkmark-color: #0b1f1c;
+}
+
+ion-label h2 {
+  color: #f3f4f6;
+  font-weight: 600;
+}
+
+ion-label p {
+  color: #9ca3af;
+}
+
+.chip {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 999px;
+  background: rgba(94, 234, 212, 0.12);
+  color: #5eead4;
+  font-size: 12px;
+}
+
+.amount {
+  color: #5eead4;
+  font-weight: 700;
+  font-size: 16px;
+  margin-right: 6px;
+}
+
+.del {
+  --color: #ff6b6b;
+}
+
+.done h2 {
+  text-decoration: line-through;
+  opacity: 0.5;
+}

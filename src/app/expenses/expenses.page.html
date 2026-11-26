@@ -1,0 +1,52 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title>Expenses</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item>
+      <ion-input label="Title" labelPlacement="stacked" [(ngModel)]="title"
+        placeholder="e.g., Groceries" [maxlength]="60"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Budget Amount" labelPlacement="stacked" type="number"
+        [(ngModel)]="amount" placeholder="0.00"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input label="Category" labelPlacement="stacked" [(ngModel)]="category"
+        placeholder="e.g., Fruits"></ion-input>
+    </ion-item>
+  </ion-list>
+
+  <ion-button expand="block" (click)="add()"
+    [disabled]="!title.trim() || amount === null">Add expense</ion-button>
+
+  @if (errorMsg()) {
+    <ion-text color="danger"><p>{{ errorMsg() }}</p></ion-text>
+  }
+
+  <ion-list>
+    <ion-list-header>
+      <ion-label>Expenses ({{ expenses().length }}) - live from Firestore</ion-label>
+    </ion-list-header>
+
+    @for (e of expenses(); track e.id) {
+      <ion-item>
+        <ion-checkbox slot="start" aria-label="Paid" [checked]="e.paid"
+          (ionChange)="toggle(e, $event.detail.checked)"></ion-checkbox>
+        <ion-label [class.done]="e.paid">
+          <h2>{{ e.title }} - ₱{{ e.amount }}</h2>
+          <p>{{ e.category }}</p>
+          <p><small>{{ e.createdAt | date: 'MMM d, y h:mm a' }}</small></p>
+        </ion-label>
+        <ion-button slot="end" fill="clear" color="danger" (click)="remove(e)">Delete</ion-button>
+      </ion-item>
+    } @empty {
+      <ion-item lines="none">
+        <ion-label color="medium">No expenses yet. Add one above.</ion-label>
+      </ion-item>
+    }
+  </ion-list>
+</ion-content>
